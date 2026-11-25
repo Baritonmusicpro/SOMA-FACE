@@ -1,0 +1,6 @@
+{
+  "name": "SOMA FACE",
+  "description": "Luxury cinematic skincare campaign and interactive collection experience for SOMA FACE.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

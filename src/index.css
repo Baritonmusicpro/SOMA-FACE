@@ -1,0 +1,108 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Daylight Quiet Luxury Palette */
+  --color-ivory: #F6F3EE;
+  --color-linen: #EAE3D7;
+  --color-travertine: #D8CEBE;
+  --color-taupe: #A28B73;
+  --color-espresso: #1C1B19;
+  --color-champagne: #B6975C;
+
+  /* Nocturne Luxury Palette */
+  --color-basalt: #111110;
+  --color-obsidian: #1B1A18;
+  --color-metallic-gold: #CFAF70;
+  --color-alabaster: #F2ECE1;
+
+  /* Backwards-compatible semantic tokens */
+  --color-mocha: #30251F;
+  --color-sand: #D8CEBE;
+  --color-matte-black: #191817;
+
+  --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-sans: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-sans);
+    background-color: #F6F3EE;
+    color: #1C1B19;
+    overflow: hidden;
+  }
+
+  html.dark,
+  html.dark body,
+  html.dark #root {
+    background-color: #111110;
+    color: #F2ECE1;
+  }
+
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: var(--font-display);
+  }
+}
+
+@keyframes sunbeamDrift {
+  0% {
+    transform: translate3d(-2%, -1%, 0) rotate(-14deg);
+    opacity: 0.24;
+  }
+  50% {
+    transform: translate3d(2.5%, 1.5%, 0) rotate(-13.2deg);
+    opacity: 0.36;
+  }
+  100% {
+    transform: translate3d(-2%, -1%, 0) rotate(-14deg);
+    opacity: 0.24;
+  }
+}
+
+@keyframes scrollLinePulse {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+    opacity: 0;
+  }
+  35% {
+    transform: scaleY(1);
+    transform-origin: top;
+    opacity: 0.85;
+  }
+  65% {
+    transform: scaleY(1);
+    transform-origin: bottom;
+    opacity: 0.85;
+  }
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+    opacity: 0;
+  }
+}
+
+.animate-sunbeam {
+  animation: sunbeamDrift 14s ease-in-out infinite;
+}
+
+.animate-scroll-line {
+  animation: scrollLinePulse 2.4s cubic-bezier(0.45, 0, 0.2, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-sunbeam,
+  .animate-scroll-line {
+    animation: none;
+  }
+}
